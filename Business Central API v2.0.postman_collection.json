@@ -2,7 +2,6 @@
 	"info": {
 		"_postman_id": "fa3c003b-a330-4b0a-8330-dce46fe0d8ab",
 		"name": "Business Central API v2.0",
-		"description": "# Business Central API v2.0\n\nLink: [https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21650833"
 	},
@@ -12,7 +11,7 @@
 			"item": [
 				{
 					"name": "accounts",
-					"request": {
+										"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -39,7 +38,7 @@
 				},
 				{
 					"name": "account",
-					"request": {
+										"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -5128,7 +5127,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"journalId\": \"{{customerPaymentJournalId}}\",\r\n    \"journalDisplayName\": \"GENERAL\",\r\n    \"lineNumber\": 10000,\r\n    \"customerId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"customerNumber\": \"\",\r\n    \"documentNumber\": \"G02001\",\r\n    \"externalDocumentNumber\": \"\",\r\n    \"amount\": 0,\r\n    \"appliesToInvoiceId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"appliesToInvoiceNumber\": \"\",\r\n    \"description\": \"Cash\",\r\n    \"comment\": \"\"\r\n}",
+							"raw": "{\r\n    \"journalId\": \"{{customerPaymentJournalId}}\",\r\n    \"journalDisplayName\": \"GENERAL\",\r\n    \"lineNumber\": 10000,\r\n    \"customerId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"customerNumber\": \"\",\r\n    \"postingDate\": \"2015-12-31\",\r\n    \"documentNumber\": \"G02001\",\r\n    \"externalDocumentNumber\": \"\",\r\n    \"amount\": 0,\r\n    \"appliesToInvoiceId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"appliesToInvoiceNumber\": \"\",\r\n    \"description\": \"Cash\",\r\n    \"comment\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6560,7 +6559,217 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/customerSales/?tenant={{tenant}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"customerSales",
+										""
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "OData-Version",
+									"value": "4.0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "efff579b-7f81-411e-b38e-de22716f5d4e"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Aug 2023 22:49:02 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(3e88d15b-e23c-ee11-be71-6045bdac9d50)/customerSales\",\n    \"value\": [\n        {\n            \"customerId\": \"d5bf4969-e23c-ee11-be71-6045bdac9d50\",\n            \"customerNumber\": \"40000\",\n            \"name\": \"Alpine Ski House\",\n            \"totalSalesAmount\": 369.9,\n            \"dateFilter_FilterOnly\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "customerSales $filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/customerSales/?tenant={{tenant}}&$filter=customerId eq {{customerId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"customerSales",
+								""
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								},
+								{
+									"key": "$filter",
+									"value": "customerId eq {{customerId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/customerSales/?tenant={{tenant}}&$filter=customerId eq {{customerId}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"customerSales",
+										""
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										},
+										{
+											"key": "$filter",
+											"value": "customerId eq {{customerId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "OData-Version",
+									"value": "4.0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "8fe1076d-2490-47ef-93ce-0309a992adb4"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Aug 2023 22:53:38 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(3e88d15b-e23c-ee11-be71-6045bdac9d50)/customerSales\",\n    \"value\": [\n        {\n            \"customerId\": \"d1bf4969-e23c-ee11-be71-6045bdac9d50\",\n            \"customerNumber\": \"30000\",\n            \"name\": \"School of Fine Art\",\n            \"totalSalesAmount\": 3363.2,\n            \"dateFilter_FilterOnly\": null\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		},
@@ -7066,6 +7275,62 @@
 							"body": ""
 						}
 					]
+				},
+				{
+					"name": "dimension",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/defaultDimensions({{defaultDimensionId}})/dimension?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"defaultDimensions({{defaultDimensionId}})",
+								"dimension"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dimensionValue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/defaultDimensions({{defaultDimensionId}})/dimensionValue?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"defaultDimensions({{defaultDimensionId}})",
+								"dimensionValue"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -8537,7 +8802,7 @@
 			]
 		},
 		{
-			"name": "FIX: item",
+			"name": "item",
 			"item": [
 				{
 					"name": "items",
@@ -8598,11 +8863,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/v2.0/companies({{companyId}})/items({{itemId}})?tenant={{tenant}}",
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})?tenant={{tenant}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"{{environment}}",
 										"api",
 										"v2.0",
 										"companies({{companyId}})",
@@ -8630,11 +8896,11 @@
 								},
 								{
 									"key": "Content-Type",
-									"value": "application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8"
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
 								},
 								{
 									"key": "Content-Encoding",
-									"value": "gzip"
+									"value": "br"
 								},
 								{
 									"key": "Vary",
@@ -8643,6 +8909,10 @@
 								{
 									"key": "Server",
 									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
 								},
 								{
 									"key": "OData-Version",
@@ -8662,15 +8932,15 @@
 								},
 								{
 									"key": "request-id",
-									"value": "0970a161-1815-45ee-b205-15955feb8c03"
+									"value": "6c1e8e3a-cd37-4b5e-a7af-1eb1609bbca5"
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 30 Dec 2022 09:57:41 GMT"
+									"value": "Fri, 18 Aug 2023 21:30:24 GMT"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(a19eca60-4a86-ed11-aad5-000d3a38ed32)/items/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE4Ozg3ODk3ODUwNTQ0NzUwMjEyNTE7MDA7Jw==\\\"\",\n    \"id\": \"cdea0975-4a86-ed11-aad5-000d3a38ed32\",\n    \"number\": \"1896-S\",\n    \"displayName\": \"ATHENS Desk\",\n    \"type\": \"Inventory\",\n    \"itemCategoryId\": \"e9eb0975-4a86-ed11-aad5-000d3a38ed32\",\n    \"itemCategoryCode\": \"TABLE\",\n    \"blocked\": false,\n    \"gtin\": \"\",\n    \"inventory\": 0,\n    \"unitPrice\": 649.4,\n    \"priceIncludesTax\": false,\n    \"unitCost\": 506.6,\n    \"taxGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"taxGroupCode\": \"\",\n    \"baseUnitOfMeasureId\": \"4718f968-4a86-ed11-aad5-000d3a38ed32\",\n    \"baseUnitOfMeasureCode\": \"PCS\",\n    \"generalProductPostingGroupId\": \"1419f968-4a86-ed11-aad5-000d3a38ed32\",\n    \"generalProductPostingGroupCode\": \"RETAIL\",\n    \"inventoryPostingGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"inventoryPostingGroupCode\": \"RESALE\",\n    \"lastModifiedDateTime\": \"2022-12-28T00:56:31Z\"\n}"
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(da7a30ba-d83d-ee11-be71-6045bde9cbf2)/items/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE5OzQ5MDc3MTEyNTA0ODI4NzUwNzExOzAwOyc=\\\"\",\n    \"id\": \"c6d44253-0e3e-ee11-ab01-fdcd1414a02d\",\n    \"number\": \"3000-D\",\n    \"displayName\": \"ATHENS Desk\",\n    \"displayName2\": \"\",\n    \"type\": \"Inventory\",\n    \"itemCategoryId\": \"626c8bcd-d83d-ee11-be71-6045bde9cbf2\",\n    \"itemCategoryCode\": \"DESK\",\n    \"blocked\": false,\n    \"gtin\": \"\",\n    \"inventory\": 0,\n    \"unitPrice\": 1000.8,\n    \"priceIncludesTax\": false,\n    \"unitCost\": 780.7,\n    \"taxGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"taxGroupCode\": \"\",\n    \"baseUnitOfMeasureId\": \"349a8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"baseUnitOfMeasureCode\": \"PCS\",\n    \"generalProductPostingGroupId\": \"019b8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"generalProductPostingGroupCode\": \"RETAIL\",\n    \"inventoryPostingGroupId\": \"039e8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"inventoryPostingGroupCode\": \"RESALE\",\n    \"lastModifiedDateTime\": \"2023-08-18T21:29:35.277Z\"\n}"
 						}
 					]
 				},
@@ -8687,7 +8957,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"number\": \"3000-S\",\r\n  \"displayName\": \"ATHENS Desk\",\r\n  \"type\": \"Inventory\",\r\n  \"itemCategoryId\": \"{{itemCategoryId}}\",\r\n  \"itemCategoryCode\": \"TABLE\",\r\n  \"blocked\": false,\r\n  \"gtin\": \"\",\r\n  \"inventory\": 4,\r\n  \"unitPrice\": 1000.8,\r\n  \"priceIncludesTax\": false,\r\n  \"unitCost\": 780.7,\r\n  \"taxGroupId\": \"9f196a90-44e3-ea11-bb43-000d3a2feca1\",\r\n  \"taxGroupCode\": \"FURNITURE\",\r\n  \"baseUnitOfMeasureId\": \"5ca6738a-44e3-ea11-bb43-000d3a2feca1\",\r\n  \"baseUnitOfMeasureCode\": \"PCS\"\r\n}"
+							"raw": "{\r\n  \"number\": \"3000-D\",\r\n  \"displayName\": \"ATHENS Desk\",\r\n  \"type\": \"Inventory\",\r\n  \"itemCategoryId\": \"{{itemCategoryId}}\",\r\n  \"itemCategoryCode\": \"DESK\",\r\n  \"blocked\": false,\r\n  \"gtin\": \"\",\r\n  \"unitPrice\": 1000.8,\r\n  \"priceIncludesTax\": false,\r\n  \"unitCost\": 780.7,\r\n  \"taxGroupId\": \"{{taxGroupId}}\",\r\n  \"taxGroupCode\": \"\",\r\n  \"baseUnitOfMeasureId\": \"{{baseUnitOfMeasureId}}\",\r\n  \"baseUnitOfMeasureCode\": \"PCS\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items?tenant={{tenant}}",
@@ -8709,10 +8979,110 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "201 Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"number\": \"3000-D\",\r\n  \"displayName\": \"ATHENS Desk\",\r\n  \"type\": \"Inventory\",\r\n  \"itemCategoryId\": \"{{itemCategoryId}}\",\r\n  \"itemCategoryCode\": \"DESK\",\r\n  \"blocked\": false,\r\n  \"gtin\": \"\",\r\n  \"unitPrice\": 1000.8,\r\n  \"priceIncludesTax\": false,\r\n  \"unitCost\": 780.7,\r\n  \"taxGroupId\": \"{{taxGroupId}}\",\r\n  \"taxGroupCode\": \"\",\r\n  \"baseUnitOfMeasureId\": \"{{baseUnitOfMeasureId}}\",\r\n  \"baseUnitOfMeasureCode\": \"PCS\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items?tenant={{tenant}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"items"
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Location",
+									"value": "http://bcserver:7048/BC/api/v2.0/companies(da7a30ba-d83d-ee11-be71-6045bde9cbf2)/items(c6d44253-0e3e-ee11-ab01-fdcd1414a02d)"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "OData-Version",
+									"value": "4.0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "5db51b49-c31d-46f8-8d50-bed600b9345b"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Aug 2023 21:29:35 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(da7a30ba-d83d-ee11-be71-6045bde9cbf2)/items/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE5OzQ5MDc3MTEyNTA0ODI4NzUwNzExOzAwOyc=\\\"\",\n    \"id\": \"c6d44253-0e3e-ee11-ab01-fdcd1414a02d\",\n    \"number\": \"3000-D\",\n    \"displayName\": \"ATHENS Desk\",\n    \"displayName2\": \"\",\n    \"type\": \"Inventory\",\n    \"itemCategoryId\": \"626c8bcd-d83d-ee11-be71-6045bde9cbf2\",\n    \"itemCategoryCode\": \"DESK\",\n    \"blocked\": false,\n    \"gtin\": \"\",\n    \"inventory\": 0,\n    \"unitPrice\": 1000.8,\n    \"priceIncludesTax\": false,\n    \"unitCost\": 780.7,\n    \"taxGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"taxGroupCode\": \"\",\n    \"baseUnitOfMeasureId\": \"349a8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"baseUnitOfMeasureCode\": \"PCS\",\n    \"generalProductPostingGroupId\": \"019b8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"generalProductPostingGroupCode\": \"RETAIL\",\n    \"inventoryPostingGroupId\": \"039e8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"inventoryPostingGroupCode\": \"RESALE\",\n    \"lastModifiedDateTime\": \"2023-08-18T21:29:35.277Z\"\n}"
+						}
+					]
 				},
 				{
-					"name": "items",
+					"name": "item",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -8773,11 +9143,12 @@
 									"raw": "{\r\n  \"displayName\": \"ATHENS Desk - blocked\",\r\n  \"blocked\": true\r\n}"
 								},
 								"url": {
-									"raw": "{{url}}/api/v2.0/companies({{companyId}})/items({{itemId}})?tenant={{tenant}}",
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})?tenant={{tenant}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"{{environment}}",
 										"api",
 										"v2.0",
 										"companies({{companyId}})",
@@ -8805,11 +9176,11 @@
 								},
 								{
 									"key": "Content-Type",
-									"value": "application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8"
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
 								},
 								{
 									"key": "Content-Encoding",
-									"value": "gzip"
+									"value": "br"
 								},
 								{
 									"key": "Vary",
@@ -8818,6 +9189,10 @@
 								{
 									"key": "Server",
 									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
 								},
 								{
 									"key": "OData-Version",
@@ -8837,20 +9212,20 @@
 								},
 								{
 									"key": "request-id",
-									"value": "9d8a0952-2349-46cb-b331-f875ad3bdb72"
+									"value": "65fd5fff-d371-48c4-9b1d-e7b2ee062a4d"
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 30 Dec 2022 12:26:02 GMT"
+									"value": "Fri, 18 Aug 2023 21:30:47 GMT"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(a19eca60-4a86-ed11-aad5-000d3a38ed32)/items/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE5OzgyMTI5MDk4ODUwMTI3MzEwOTkxOzAwOyc=\\\"\",\n    \"id\": \"cdea0975-4a86-ed11-aad5-000d3a38ed32\",\n    \"number\": \"1896-S\",\n    \"displayName\": \"ATHENS Desk - blocked\",\n    \"type\": \"Inventory\",\n    \"itemCategoryId\": \"e9eb0975-4a86-ed11-aad5-000d3a38ed32\",\n    \"itemCategoryCode\": \"TABLE\",\n    \"blocked\": true,\n    \"gtin\": \"\",\n    \"inventory\": 0,\n    \"unitPrice\": 649.4,\n    \"priceIncludesTax\": false,\n    \"unitCost\": 506.6,\n    \"taxGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"taxGroupCode\": \"\",\n    \"baseUnitOfMeasureId\": \"4718f968-4a86-ed11-aad5-000d3a38ed32\",\n    \"baseUnitOfMeasureCode\": \"PCS\",\n    \"generalProductPostingGroupId\": \"1419f968-4a86-ed11-aad5-000d3a38ed32\",\n    \"generalProductPostingGroupCode\": \"RETAIL\",\n    \"inventoryPostingGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"inventoryPostingGroupCode\": \"RESALE\",\n    \"lastModifiedDateTime\": \"2022-12-30T12:26:02.883Z\"\n}"
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(da7a30ba-d83d-ee11-be71-6045bde9cbf2)/items/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE5Ozc0NjM2MTAxMDg5NTc1Njc0MjkxOzAwOyc=\\\"\",\n    \"id\": \"c6d44253-0e3e-ee11-ab01-fdcd1414a02d\",\n    \"number\": \"3000-D\",\n    \"displayName\": \"ATHENS Desk - blocked\",\n    \"displayName2\": \"\",\n    \"type\": \"Inventory\",\n    \"itemCategoryId\": \"626c8bcd-d83d-ee11-be71-6045bde9cbf2\",\n    \"itemCategoryCode\": \"DESK\",\n    \"blocked\": true,\n    \"gtin\": \"\",\n    \"inventory\": 0,\n    \"unitPrice\": 1000.8,\n    \"priceIncludesTax\": false,\n    \"unitCost\": 780.7,\n    \"taxGroupId\": \"00000000-0000-0000-0000-000000000000\",\n    \"taxGroupCode\": \"\",\n    \"baseUnitOfMeasureId\": \"349a8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"baseUnitOfMeasureCode\": \"PCS\",\n    \"generalProductPostingGroupId\": \"019b8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"generalProductPostingGroupCode\": \"RETAIL\",\n    \"inventoryPostingGroupId\": \"039e8ec1-d83d-ee11-be71-6045bde9cbf2\",\n    \"inventoryPostingGroupCode\": \"RESALE\",\n    \"lastModifiedDateTime\": \"2023-08-18T21:30:48.023Z\"\n}"
 						}
 					]
 				},
 				{
-					"name": "items",
+					"name": "item",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -8875,6 +9250,71 @@
 						}
 					},
 					"response": [
+						{
+							"name": "204 No Content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})?tenant={{tenant}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"items({{itemId}})"
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "7a2396a2-ab26-4a7d-8fed-9e0ab0fc2fd4"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Aug 2023 21:31:20 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
 						{
 							"name": "400 Outstanding Purchase Order",
 							"originalRequest": {
@@ -8952,6 +9392,118 @@
 							"body": "{\n    \"error\": {\n        \"code\": \"Application_DialogException\",\n        \"message\": \"You cannot delete Item 1896-S because there is at least one outstanding Purchase Order that includes this item.  CorrelationId:  4259bf73-d4ca-4a6f-8813-9bd8e3cc8896.\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "itemCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})/itemCategory?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"items({{itemId}})",
+								"itemCategory"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unitOfMeasure",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})/unitOfMeasure?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"items({{itemId}})",
+								"unitOfMeasure"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inventoryPostingGroup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})/inventoryPostingGroup?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"items({{itemId}})",
+								"inventoryPostingGroup"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generalProductPostingGroup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/items({{itemId}})/generalProductPostingGroup?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"items({{itemId}})",
+								"generalProductPostingGroup"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
 				},
 				{
 					"name": "itemVariants",
@@ -13780,6 +14332,34 @@
 								"v2.0",
 								"companies({{companyId}})",
 								"customers({{customerId}})",
+								"picture"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact picture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/contacts({{contactId}})/picture?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"contacts({{contactId}})",
 								"picture"
 							],
 							"query": [
@@ -22688,6 +23268,121 @@
 					]
 				},
 				{
+					"name": "paymentMethod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/vendors({{vendorId}})/paymentMethod?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"vendors({{vendorId}})",
+								"paymentMethod"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/vendors({{vendorId}})/paymentMethod?tenant={{tenant}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"vendors({{vendorId}})",
+										"paymentMethod"
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "OData-Version",
+									"value": "4.0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "6933b55c-2134-4c8b-8d68-e0730c0ce1b3"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Aug 2023 20:06:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(f0bb10fd-583f-ee11-be74-6045bdc8c285)/vendors(d84c550b-593f-ee11-be74-6045bdc8c285)/paymentMethod/$entity\",\n    \"@odata.etag\": \"W/\\\"JzE5OzY2NDg3OTM4NDQ5NDc2NTM3MDMxOzAwOyc=\\\"\",\n    \"id\": \"a2915305-593f-ee11-be74-6045bdc8c285\",\n    \"code\": \"ACCOUNT\",\n    \"displayName\": \"Payment on account\",\n    \"lastModifiedDateTime\": \"2023-08-20T12:56:57.333Z\"\n}"
+						}
+					]
+				},
+				{
 					"name": "paymentTerm",
 					"request": {
 						"method": "GET",
@@ -23521,6 +24216,119 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/vendorPurchases({{vendorId}}, '{{vendorNumber}}', '{{vendorName}}')?tenant={{tenant}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{environment}}",
+								"api",
+								"v2.0",
+								"companies({{companyId}})",
+								"vendorPurchases({{vendorId}}, '{{vendorNumber}}', '{{vendorName}}')"
+							],
+							"query": [
+								{
+									"key": "tenant",
+									"value": "{{tenant}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/vendorPurchases({{vendorId}}, '{{vendorNumber}}', '{{vendorName}}')?tenant={{tenant}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{environment}}",
+										"api",
+										"v2.0",
+										"companies({{companyId}})",
+										"vendorPurchases({{vendorId}}, '{{vendorNumber}}', '{{vendorName}}')"
+									],
+									"query": [
+										{
+											"key": "tenant",
+											"value": "{{tenant}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; odata.metadata=minimal; odata.streaming=true"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-HTTPAPI/2.0"
+								},
+								{
+									"key": "urls-rewritten-to-public",
+									"value": "false"
+								},
+								{
+									"key": "OData-Version",
+									"value": "4.0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Date, Content-Length, Server, OData-Version"
+								},
+								{
+									"key": "request-id",
+									"value": "ad14a90f-0e03-4516-a027-d818a38a9042"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Aug 2023 21:49:00 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"@odata.context\": \"http://bcserver:7048/BC/api/v2.0/$metadata#companies(3e88d15b-e23c-ee11-be71-6045bdac9d50)/vendorPurchases/$entity\",\n    \"vendorId\": \"ddbf4969-e23c-ee11-be71-6045bdac9d50\",\n    \"vendorNumber\": \"10000\",\n    \"name\": \"Fabrikam, Inc.\",\n    \"totalPurchaseAmount\": 0,\n    \"dateFilter_FilterOnly\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "vendorPurchase $filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
 							"raw": "{{url}}/{{environment}}/api/v2.0/companies({{companyId}})/vendorPurchases?tenant={{tenant}}&$filter=vendorId eq {{vendorId}}",
 							"host": [
 								"{{url}}"
@@ -23634,40 +24442,17 @@
 			]
 		},
 		{
-			"name": "APIs",
+			"name": "metadata",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/v2.0?tenant={{tenant}}",
+					"raw": "{{url}}/{{environment}}/api/v2.0/$metadata?tenant={{tenant}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"api",
-						"v2.0"
-					],
-					"query": [
-						{
-							"key": "tenant",
-							"value": "{{tenant}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "APIs metadata",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/v2.0/$metadata?tenant={{tenant}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
+						"{{environment}}",
 						"api",
 						"v2.0",
 						"$metadata"
@@ -23683,19 +24468,30 @@
 			"response": []
 		},
 		{
-			"name": "environments",
+			"name": "metadata schemaversion",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://bcserver:7048/environments",
-					"protocol": "http",
+					"raw": "{{url}}/{{environment}}/api/v2.0/$metadata?schemaversion=2.0&tenant={{tenant}}",
 					"host": [
-						"bcserver"
+						"{{url}}"
 					],
-					"port": "7048",
 					"path": [
-						"environments"
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"$metadata"
+					],
+					"query": [
+						{
+							"key": "schemaversion",
+							"value": "2.0"
+						},
+						{
+							"key": "tenant",
+							"value": "{{tenant}}"
+						}
 					]
 				}
 			},
